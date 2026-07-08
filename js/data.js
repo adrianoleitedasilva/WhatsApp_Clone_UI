@@ -1,0 +1,141 @@
+// ===================== DADOS SIMULADOS =====================
+// Todo o conteúdo abaixo é fictício, usado apenas para popular a interface.
+
+const CONTACTS = [
+  {
+    id: "c1",
+    name: "Mariana Silva",
+    initials: "MS",
+    color: "1",
+    online: true,
+    pinned: true,
+    favorite: true,
+    group: false,
+    messages: [
+      { from: "them", text: "Oi! Tudo bem com você?", time: "08:12", status: "read" },
+      { from: "me", text: "Tudo ótimo! E aí, terminou o relatório?", time: "08:15", status: "read" },
+      { from: "them", text: "Terminei sim, vou te mandar até o meio-dia 😄", time: "08:16", status: "read" },
+      { from: "me", text: "Perfeito, obrigado!", time: "08:17", status: "delivered" },
+    ],
+  },
+  {
+    id: "c2",
+    name: "Equipe Frontend",
+    initials: "EF",
+    color: "2",
+    online: false,
+    pinned: true,
+    favorite: false,
+    group: true,
+    messages: [
+      { from: "them", text: "Lucas: Subi a branch da nova sidebar", time: "07:40", status: "read" },
+      { from: "them", text: "Ana: Vou revisar o PR agora", time: "07:41", status: "read" },
+      { from: "me", text: "Show, avisa quando puder fazer o merge", time: "07:45", status: "read" },
+    ],
+  },
+  {
+    id: "c3",
+    name: "Carlos Eduardo",
+    initials: "CE",
+    color: "3",
+    online: true,
+    pinned: false,
+    favorite: true,
+    group: false,
+    unread: 2,
+    messages: [
+      { from: "them", text: "Bora fechar aquele jogo hoje à noite?", time: "Ontem", status: "read" },
+      { from: "me", text: "Bora! Que horas?", time: "Ontem", status: "read" },
+      { from: "them", text: "21h como sempre 🎮", time: "Ontem", status: "read" },
+    ],
+  },
+  {
+    id: "c4",
+    name: "Fernanda Costa",
+    initials: "FC",
+    color: "4",
+    online: false,
+    pinned: false,
+    favorite: false,
+    group: false,
+    unread: 1,
+    messages: [
+      { from: "them", text: "Você viu as fotos que te mandei?", time: "Ontem", status: "read" },
+      { from: "me", text: "Vi sim, ficaram incríveis!", time: "Ontem", status: "read" },
+    ],
+  },
+  {
+    id: "c5",
+    name: "Família ❤️",
+    initials: "FA",
+    color: "5",
+    online: false,
+    pinned: false,
+    favorite: false,
+    group: true,
+    messages: [
+      { from: "them", text: "Mãe: Não esqueçam do almoço de domingo!", time: "Terça", status: "read" },
+      { from: "them", text: "Pai: Combinado, chego às 12h", time: "Terça", status: "read" },
+    ],
+  },
+  {
+    id: "c6",
+    name: "Rafael Almeida",
+    initials: "RA",
+    color: "6",
+    online: true,
+    pinned: false,
+    favorite: false,
+    group: false,
+    messages: [
+      { from: "me", text: "Aquele documento ficou pronto?", time: "Segunda", status: "read" },
+      { from: "them", text: "Ficou, já te enviei por e-mail", time: "Segunda", status: "read" },
+    ],
+  },
+  {
+    id: "c7",
+    name: "Juliana Pereira",
+    initials: "JP",
+    color: "7",
+    online: false,
+    pinned: false,
+    favorite: false,
+    group: false,
+    messages: [
+      { from: "them", text: "Parabéns pelo projeto novo! 🎉", time: "Domingo", status: "read" },
+      { from: "me", text: "Muito obrigado, Ju!", time: "Domingo", status: "read" },
+    ],
+  },
+  {
+    id: "c8",
+    name: "Suporte TI",
+    initials: "TI",
+    color: "8",
+    online: true,
+    pinned: false,
+    favorite: false,
+    group: false,
+    unread: 3,
+    messages: [
+      { from: "them", text: "Seu chamado #4521 foi resolvido.", time: "05/07", status: "read" },
+    ],
+  },
+];
+
+const AUTO_REPLIES = [
+  "Legal, entendi!",
+  "Boa, obrigado por avisar 👍",
+  "Kkkkk verdade",
+  "Depois te conto mais detalhes",
+  "Combinado!",
+  "Perfeito, sem problemas.",
+  "Vou verificar isso e já te retorno.",
+  "Ótima notícia! 🎉",
+];
+
+const EMOJIS = [
+  "😀","😁","😂","🤣","😊","😍","😘","😜","🤔","😎",
+  "😢","😭","😡","👍","👏","🙏","🎉","❤️","🔥","✨",
+  "😴","🤗","😇","🙌","💪","🤝","👋","😅","🥳","🤩",
+  "😱","🤯","🥺","😏","😉","😌","🤤","😳","🫡","💯",
+];

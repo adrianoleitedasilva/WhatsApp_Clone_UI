@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhatsApp Clone</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%2216%22 fill=%22%2325D366%22/></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app" id="app">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar" id="sidebar">
+    <header class="sidebar-header">
+      <div class="avatar avatar-me" id="myAvatar" data-initials="EU"></div>
+      <div class="header-icons">
+        <button class="icon-btn" id="statusBtn" title="Status">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm1-13h-2v6l5.2 3.1 1-1.6-4.2-2.5z"/></svg>
+        </button>
+        <button class="icon-btn" id="newChatBtn" title="Nova conversa">
+          <svg viewBox="0 0 24 24"><path d="M17 3a2.83 2.83 0 0 1 4 4L7 21l-4 1 1-4z"/></svg>
+        </button>
+        <button class="icon-btn" id="themeBtn" title="Alternar tema">
+          <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
+        </button>
+        <button class="icon-btn" id="menuBtn" title="Menu">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="search-bar">
+      <div class="search-input-wrap">
+        <svg viewBox="0 0 24 24" class="search-icon"><path d="M10 2a8 8 0 1 0 4.9 14.32l5.4 5.4 1.4-1.4-5.4-5.4A8 8 0 0 0 10 2zm0 2a6 6 0 1 1-6 6 6 6 0 0 1 6-6z"/></svg>
+        <input type="text" id="searchInput" placeholder="Pesquisar ou começar uma nova conversa">
+      </div>
+    </div>
+
+    <div class="chat-filters">
+      <button class="filter-chip active" data-filter="all">Todas</button>
+      <button class="filter-chip" data-filter="unread">Não lidas</button>
+      <button class="filter-chip" data-filter="favorites">Favoritas</button>
+      <button class="filter-chip" data-filter="groups">Grupos</button>
+    </div>
+
+    <ul class="chat-list" id="chatList"></ul>
+  </aside>
+
+  <!-- ============ CHAT AREA ============ -->
+  <section class="chat-area" id="chatArea">
+
+    <div class="empty-state" id="emptyState">
+      <div class="empty-illustration">
+        <svg viewBox="0 0 303 172" width="260">
+          <circle cx="151" cy="86" r="86" fill="currentColor" opacity="0.06"/>
+          <path fill="currentColor" opacity="0.18" d="M151 30a56 56 0 1 0 56 56 56 56 0 0 0-56-56zm0 96a40 40 0 1 1 40-40 40 40 0 0 1-40 40z"/>
+        </svg>
+      </div>
+      <h1>WhatsApp Clone</h1>
+      <p>Envie e receba mensagens sem precisar manter seu celular conectado à internet.<br>Use em até 4 dispositivos conectados e 1 celular ao mesmo tempo.</p>
+      <div class="empty-footer">🔒 Suas mensagens pessoais são protegidas (simulação local)</div>
+    </div>
+
+    <div class="conversation" id="conversation" hidden>
+      <header class="conversation-header">
+        <button class="icon-btn back-btn" id="backBtn" title="Voltar">
+          <svg viewBox="0 0 24 24"><path d="M20 11H7.8l5.6-5.6L12 4l-8 8 8 8 1.4-1.4L7.8 13H20z"/></svg>
+        </button>
+        <div class="avatar" id="convAvatar"></div>
+        <div class="conv-info">
+          <div class="conv-name" id="convName"></div>
+          <div class="conv-status" id="convStatus">online</div>
+        </div>
+        <div class="header-icons">
+          <button class="icon-btn" title="Pesquisar">
+            <svg viewBox="0 0 24 24"><path d="M10 2a8 8 0 1 0 4.9 14.32l5.4 5.4 1.4-1.4-5.4-5.4A8 8 0 0 0 10 2zm0 2a6 6 0 1 1-6 6 6 6 0 0 1 6-6z"/></svg>
+          </button>
+          <button class="icon-btn" title="Menu">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="messages" id="messages"></div>
+
+      <div class="typing-indicator" id="typingIndicator" hidden>
+        <span></span><span></span><span></span>
+      </div>
+
+      <footer class="composer">
+        <button class="icon-btn" id="emojiBtn" title="Emoji">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-3.5 6a1.5 1.5 0 1 1-1.5 1.5A1.5 1.5 0 0 1 8.5 8zm7 0a1.5 1.5 0 1 1-1.5 1.5A1.5 1.5 0 0 1 15.5 8zM12 18.5A6.5 6.5 0 0 1 6 15h12a6.5 6.5 0 0 1-6 3.5z"/></svg>
+        </button>
+        <button class="icon-btn" id="attachBtn" title="Anexar">
+          <svg viewBox="0 0 24 24"><path d="M16.5 6.5v10a4 4 0 0 1-8 0v-11a2.5 2.5 0 0 1 5 0v10a1 1 0 0 1-2 0v-9h-1v9a2 2 0 0 0 4 0v-10a3.5 3.5 0 0 0-7 0v11a5 5 0 0 0 10 0v-10z"/></svg>
+        </button>
+        <div class="emoji-picker" id="emojiPicker" hidden></div>
+        <div class="composer-input-wrap">
+          <textarea id="messageInput" placeholder="Digite uma mensagem" rows="1"></textarea>
+        </div>
+        <button class="icon-btn send-btn" id="sendBtn" title="Enviar">
+          <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+        </button>
+      </footer>
+    </div>
+
+  </section>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
